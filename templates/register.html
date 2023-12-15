@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block head %}
+
+<title>Register</title>
+
+{% endblock %} {% block body %}
+<div class="container background">
+    {% with messages  = get_flashed_messages(with_categories = true)%}
+        {% if messages %}
+            {% for category, message in messages%}
+            <div class="position-relative">            
+                <div class="alert alert-danger d-flex position-absolute top-0 start-50 translate-middle-x w-25 p-3 justify-content-between" role="alert">                  
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>                 
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  <div class="position-absolute top-50 start-50 translate-middle form-color">
+    <h1>Register</h1>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="loginInput" class="form-label">Login</label>
+        <input
+          type="email"
+          class="form-control rounded-custom"
+          id="loginInput"
+          name="login"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control rounded-custom"
+          id="passwordInput"
+          name="password"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="rePasswordInput" class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control rounded-custom"
+          id="rePasswordInput"
+          name="rePassword"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary rounded-custom w-100 mb-3">
+        Submit
+      </button>
+      <p>Already have an account? <a href="{{ base_url }}">Log in</a></p>
+    </form>
+  </div>
+</div>
+
+{% endblock%}

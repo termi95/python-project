@@ -1,0 +1,16 @@
+body {
+  background-image: url("../assets/backgroun-img.jpg");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: auto; 
+}
+
+.form-color {
+    background-color: whitesmoke;
+    padding: 3rem;
+    border-radius: 10%;
+}
+
+.rounded-custom {
+    border-radius: 8px;
+}
