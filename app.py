@@ -101,6 +101,8 @@ def main():
     match page:
         case 'andrzej':
             return render_template("andrzej.html", base_url=base_url)
+        case 'michal':
+            return render_template("michal.html", base_url=base_url)
         case _:
             return render_template("main-page.html", base_url=base_url)
 
