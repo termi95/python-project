@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user, UserMixin
 
 from model.user import LoginReq, RegisterReq
-from services.andrzej import getPolandFromDataSet
+from services.andrzej import getPolandFromDataSet, getPolishShareInTheWorldMarket, RegionGdpPerYear
 
 app = Flask(__name__)
 app.app_context().push()
@@ -100,9 +100,16 @@ def register():
 def main():
     page = request.args.get('page')
     match page:
-        case 'andrzej':            
-            polandGdp = getPolandFromDataSet()
-            return render_template("andrzej.html", base_url=base_url, polandGdp=polandGdp)
+        case 'andrzej':
+            return render_template(
+                "andrzej.html",
+                base_url = base_url,
+                polandGdp = getPolandFromDataSet(),
+                polandShare1990 = getPolishShareInTheWorldMarket(1990),
+                polandShare2020 = getPolishShareInTheWorldMarket(2020),
+                region1990 = RegionGdpPerYear(1990),
+                region2020 = RegionGdpPerYear(2020)
+                )
         case 'michal':
             return render_template("michal.html", base_url=base_url)
         case _:
