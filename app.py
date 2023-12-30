@@ -115,9 +115,9 @@ def main():
         case 'michal':
             return render_template(
                 "michal.html",
-                base_url=base_url,
+                base_url = base_url,
                 ath = allTimeHigh(),
-                atl = allTimeLow(),
+                atl = allTimeLow()
                 )
         case _:
             return render_template("main-page.html", base_url=base_url)
