@@ -7,6 +7,8 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from model.user import LoginReq, RegisterReq
 from services.andrzej import getPolandFromDataSet, getPolishShareInTheWorldMarket, RegionGdpPerYear
+from services.michal import allTimeHigh, allTimeLow
+
 
 app = Flask(__name__)
 app.app_context().push()
@@ -111,7 +113,12 @@ def main():
                 region2020 = RegionGdpPerYear(2020)
                 )
         case 'michal':
-            return render_template("michal.html", base_url=base_url)
+            return render_template(
+                "michal.html",
+                base_url=base_url,
+                ath = allTimeHigh(),
+                atl = allTimeLow(),
+                )
         case _:
             return render_template("main-page.html", base_url=base_url)
 

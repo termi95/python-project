@@ -1,6 +1,7 @@
 import base64
 import pandas as pd
 import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 import io
@@ -10,7 +11,7 @@ def get_data():
   df['Date'] = pd.to_datetime(df['Date'])
   return df
 
-def all_time_low():
+def allTimeLow():
   df = get_data()
   min_low_index = df['Low'].idxmin()
   min_low_row = df.loc[min_low_index]
@@ -22,9 +23,13 @@ def all_time_low():
   plt.xlabel('Data')
   plt.ylabel('Cena')
   plt.title('Wykres ceny bitcoina z oznaczonym najtańszym jego momentem')
-  plt.show()
+  # zapis 
+  my_stringIObytes = io.BytesIO()
+  plt.savefig(my_stringIObytes, format='jpg')
+  my_stringIObytes.seek(0)
+  return base64.b64encode(my_stringIObytes.read()).decode()
 
-def all_time_high():
+def allTimeHigh():
   df = get_data()
   max_high_index = df['High'].idxmax()
   max_high_row = df.loc[max_high_index]  
@@ -36,4 +41,8 @@ def all_time_high():
   plt.xlabel('Data')
   plt.ylabel('Cena')
   plt.title('Wykres ceny bitcoina z oznaczonym najdroszym jego momentem')
-  plt.show()
+  # zapis 
+  my_stringIObytes = io.BytesIO()
+  plt.savefig(my_stringIObytes, format='jpg')
+  my_stringIObytes.seek(0)
+  return base64.b64encode(my_stringIObytes.read()).decode()

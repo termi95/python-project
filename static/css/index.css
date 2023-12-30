@@ -32,5 +32,15 @@
     border-radius: 20px;
     border: 1px solid white;
     min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .michal-image {
+    width: 50%;
+    height: auto;
   }
 /* END */
