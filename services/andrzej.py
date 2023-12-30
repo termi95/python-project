@@ -7,7 +7,7 @@ import os
 import io
 
 def getPolandFromDataSet():
-    fullPath = os.path.dirname(os.path.dirname(__file__)) + "\\data\\gdp_1960_2020.csv"
+    fullPath = os.path.dirname(os.path.dirname(__file__)) + "/data/gdp_1960_2020.csv"
     csv = pd.read_csv(fullPath, sep=",", encoding="utf-8")
     x: list[int] = []
     y: list[float] = []
@@ -26,7 +26,7 @@ def getPolandFromDataSet():
 
 
 def getPolishShareInTheWorldMarket(year):
-    fullPath = os.path.dirname(os.path.dirname(__file__)) + "\\data\\gdp_1960_2020.csv"
+    fullPath = os.path.dirname(os.path.dirname(__file__)) + "/data/gdp_1960_2020.csv"
     csv = pd.read_csv(fullPath, sep=",", encoding="utf-8")
     x: list[str] = []
     y: list[float] = []
@@ -52,7 +52,7 @@ def getPolishShareInTheWorldMarket(year):
     return base64.b64encode(my_stringIObytes.read()).decode()
 
 def RegionGdpPerYear(year):    
-    fullPath = os.path.dirname(os.path.dirname(__file__)) + "\\data\\gdp_1960_2020.csv"
+    fullPath = os.path.dirname(os.path.dirname(__file__)) + "/data/gdp_1960_2020.csv"
     csv = pd.read_csv(fullPath, sep=",", encoding="utf-8")
     regions = dict()
     for index in csv.index[csv['year'] == year]:
