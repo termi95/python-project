@@ -38,7 +38,8 @@
     gap: 50px;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(2, 2, 2, 0.445);
+    text-align: left;
   }
 
   .michal-image {
