@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from model.user import LoginReq, RegisterReq
 from services.andrzej import getPolandFromDataSet, getPolishShareInTheWorldMarket, RegionGdpPerYear
-from services.michal import allTimeHigh, allTimeLow, halvings, price_between_next_halving, price_between_halving
+from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving
 
 
 app = Flask(__name__)
@@ -119,8 +119,8 @@ def main():
                 ath = allTimeHigh(),
                 atl = allTimeLow(),
                 halvings = halvings(),
-                first_halving = price_between_halving(),
-                second_halving = price_between_next_halving()
+                first_halving = first_halving(),
+                second_halving = second_halving()
                 )
         case _:
             return render_template("main-page.html", base_url=base_url)
