@@ -122,6 +122,11 @@ def main():
                 first_halving = first_halving(),
                 second_halving = second_halving()
                 )
+        case 'adrian':
+            return render_template(
+                "adrian.html",
+                base_url = base_url,
+                )
         case _:
             return render_template("main-page.html", base_url=base_url)
 
