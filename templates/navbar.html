@@ -1,27 +1,29 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{base_url}}/main">
-            <img src={{url_for('static', filename='assets/icon.png')}} alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-            Języki obiektowe I (Python)
-        </a>      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{base_url}}/main?page=andrzej">Andrzej Sokołowski</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{base_url}}/main?page=adrian">Adrian Adamus</a>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{base_url}}/main?page=michal">Michał Krzysteczko</a>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{base_url}}/logout">Logout</a>
-          </li>
-        </ul>
+<nav class="bg-gray-800 fixed top-0 left-0 right-0">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <img class="h-8 w-auto" src="{{url_for('static', filename='assets/python-logo.png')}}" alt="Your Company">
+        </div>
+        <div class="sm:ml-6">
+          <div class="flex space-x-4">
+            <a href="{{base_url}}/main" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
+            <a aria-current="page" href="{{base_url}}/main?page=andrzej" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Andrzej</a>
+            <a aria-current="page" href="{{base_url}}/main?page=adrian" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Adrian</a>
+            <a aria-current="page" href="{{base_url}}/main?page=michal" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Michał</a>
+          </div>
+        </div>
+      </div>
+      <div class="sm:ml-6">
+        <div class="flex items-center">
+          <a href="{{base_url}}/logout" class="relative gap-2 flex flex-row rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+            <span>Logout</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
