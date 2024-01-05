@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from model.user import LoginReq, RegisterReq
 from services.andrzej import getPolandFromDataSet, getPolishShareInTheWorldMarket, RegionGdpPerYear
-from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving
+from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving, miniAllTimeHigh, miniAllTimeLow, miniHalvings, mini_first_halving
 
 
 app = Flask(__name__)
@@ -120,7 +120,11 @@ def main():
                 atl = allTimeLow(),
                 halvings = halvings(),
                 first_halving = first_halving(),
-                second_halving = second_halving()
+                second_halving = second_halving(),
+                miniath = miniAllTimeHigh(),
+                miniatl = miniAllTimeLow(),
+                minihalvings = miniHalvings(),
+                minifirst_halving = mini_first_halving(),
                 )
         case 'adrian':
             return render_template(

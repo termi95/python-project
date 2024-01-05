@@ -5,31 +5,141 @@
 {% endblock %}
 {% block body %}
   {% include  'navbar.html' %}
-  <div class="michal-custom-background"></div>
-
-  <div class="bg-body-tertiary me-md-3 pt-3 pb-5 px-3 pt-md-5 px-md-5 text-center overflow-hidden text-light">
-    <div class="my-3 p-3">
-      <h2 class="display-3">Michał Krzysteczko</h2>
-      <p class="lead">Analiza ceny Bitcoina &#8383; od dnia 21 grudnia 2015 do dnia 21 grudnia 2023r.</p>
+  <div class="bg-white mt-16">
+    <div aria-hidden="true" class="relative">
+      <img src="{{url_for('static', filename='assets/michal-background.jpg')}}" alt="" class="h-96 w-full object-cover object-center">
+      <div class="absolute inset-0 bg-gradient-to-t from-white"></div>
     </div>
-    <div class="michal-wrapper">
-      <span>
-        Projekt zakłada kompleksową analizę cen bitcoina, obejmującą okres od 21 grudnia 2015 roku do 21 grudnia 2023 roku. 
-        W ramach zadania skoncentrujemy się na opracowaniu szczegółowych wykresów, które odzwierciedlą dynamikę 
-        rynkową tego kryptowalutowego aktywa. Przygotowane wykresy będą obejmować kilka kluczowych aspektów, w tym:
-        <ul>
-          <li>Najwyzsza cena Bitcoina</li>
-          <li>Najnizsza cena Bitcoina</li>
-        </ul>
-      </span>
-      
-      <img src="data:image/png;base64, {{ath}}" alt="Bitcoin all time high" class="michal-image"> 
-      <img src="data:image/png;base64, {{atl}}" alt="Bitcoin all time low" class="michal-image"> 
-      <img src="data:image/png;base64, {{halvings}}" alt="Halvingi bitcoina" class="michal-image"> 
-      <img src="data:image/png;base64, {{first_halving}}" alt="Cykl bitcoina" class="michal-image"> 
-      <img src="data:image/png;base64, {{second_halving}}" alt="Cykl bitcoina" class="michal-image"> 
+  
+    <div class="relative mx-auto -mt-12 max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Analiza ceny Bitcoina &#8383; od dnia 21 grudnia 2015 do dnia 21 grudnia 2023r</h2>
+        <p class="mt-4 text-gray-500">Michał Krzysteczko</p>
+      </div>
     </div>
   </div>
 
+  <div class="bg-white">
+    <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Specyfikacja Projektu</h2>
+        <p class="mt-4 text-gray-500">Projekt zakłada kompleksową analizę cen bitcoina, obejmującą okres od 21 grudnia 2015 roku do 21 grudnia 2023 roku. 
+          W ramach zadania skoncentrowano się na opracowaniu szczegółowych wykresów, które odzwierciedlą dynamikę rynkową tego kryptowalutowego aktywa.
+          Przygotowane wykresy będą obejmować kilka kluczowych aspektów.
+        </p>
+  
+        <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">ATH</dt>
+            <dd class="mt-2 text-sm text-gray-500">ATH jest to skrót od "All time high" - to najwyższy zanotowany poziom cenowy aktywa od początku jego istnienia.</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">ATL</dt>
+            <dd class="mt-2 text-sm text-gray-500">ATH jest to skrót od "All time low" - to najniszy zanotowany poziom cenowy aktywa od początku jego istnienia.</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Halving</dt>
+            <dd class="mt-2 text-sm text-gray-500">Halving to wydarzenie polegające na zmniejszeniu nagrody dla górników o połowę, co występuje około co cztery lata.
+              Ostatni halving Bitcoina miał miejsce w maju 2020 roku. Ma to wpływ na podaż kryptowaluty i czasami może wpływać na jej wartość rynkową.
+            </dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Porównanie Halvingów</dt>
+            <dd class="mt-2 text-sm text-gray-500">Cykl Bitcoina odnosi się do regularnych wzorców wahań wartości tej kryptowaluty, które są często obserwowane na
+              przestrzeni czasu. W skrócie, cykl Bitcoina obejmuje okresy hossy (wzrostu) i bessa (spadku).
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+        <img src="data:image/png;base64, {{miniath}}" alt="Bitcoin all time high" class="rounded-lg"> 
+        <img src="data:image/png;base64, {{miniatl}}" alt="Bitcoin all time low" class="rounded-lg"> 
+        <img src="data:image/png;base64, {{minihalvings}}" alt="Halvingi bitcoina" class="rounded-lg"> 
+        <img src="data:image/png;base64, {{minifirst_halving}}" alt="Cykl bitcoina" class="rounded-lg"> 
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+      <div class="space-y-16">
+        <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+          <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-1">
+            <h3 class="text-lg font-medium text-gray-900">All Time High</h3>
+            <p class="mt-2 text-sm text-gray-500">Our laptop sleeve is compact and precisely fits 13&quot; devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.</p>
+          </div>
+          <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-7 xl:col-start-7">
+            <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg">
+              <img src="data:image/png;base64, {{ath}}" alt="Bitcoin all time high" class="object-cover object-center"> 
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+          <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-8 xl:col-start-9">
+            <h3 class="text-lg font-medium text-gray-900">All Time Low</h3>
+            <p class="mt-2 text-sm text-gray-500">We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.</p>
+          </div>
+          <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-1">
+            <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg">
+              <img src="data:image/png;base64, {{atl}}" alt="Bitcoin all time low" class="object-cover object-center"> 
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+          <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-1">
+            <h3 class="text-lg font-medium text-gray-900">Cena Bitcoina (2015 - 2024r.)</h3>
+            <p class="mt-2 text-sm text-gray-500">Our laptop sleeve is compact and precisely fits 13&quot; devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.</p>
+          </div>
+          <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-7 xl:col-start-7">
+            <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg">
+              <img src="data:image/png;base64, {{halvings}}" alt="Halvingi bitcoina" class="object-cover object-center">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+          <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-8 xl:col-start-9">
+            <h3 class="text-lg font-medium text-gray-900">Refined details</h3>
+            <p class="mt-2 text-sm text-gray-500">We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.</p>
+          </div>
+          <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-1">
+            <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg">
+              <img src="data:image/png;base64, {{first_halving}}" alt="Cykl bitcoina" class="object-cover object-center">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+          <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-1">
+            <h3 class="text-lg font-medium text-gray-900">Minimal and thoughtful</h3>
+            <p class="mt-2 text-sm text-gray-500">Our laptop sleeve is compact and precisely fits 13&quot; devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.</p>
+          </div>
+          <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-7 xl:col-start-7">
+            <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg">
+              <img src="data:image/png;base64, {{second_halving}}" alt="Cykl bitcoina" class="object-cover object-center"> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+
+ 
+  
+  
+   
+  
 
 {% endblock%}
