@@ -7,8 +7,8 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from model.user import LoginReq, RegisterReq
 from services.andrzej import getPolandFromDataSet, getPolishShareInTheWorldMarket, RegionGdpPerYear
-from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving, miniAllTimeHigh, miniAllTimeLow, miniHalvings, mini_first_halving
-
+from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving, miniAllTimeHigh, miniAllTimeLow, miniHalvings, mini_first_halving\
+# from services.adrian import
 
 app = Flask(__name__)
 app.app_context().push()
@@ -116,6 +116,7 @@ def main():
             return render_template(
                 "michal.html",
                 base_url = base_url,
+                # Zmienne z mojego pliku michl.py
                 ath = allTimeHigh(),
                 atl = allTimeLow(),
                 halvings = halvings(),
@@ -130,6 +131,7 @@ def main():
             return render_template(
                 "adrian.html",
                 base_url = base_url,
+                # NAZWAZMIENNEJ = importFunkcji(),
                 )
         case _:
             return render_template("main-page.html", base_url=base_url)
