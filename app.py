@@ -7,8 +7,9 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from model.user import LoginReq, RegisterReq
 from services.andrzej import getPolandFromDataSet, getPolishShareInTheWorldMarket, RegionGdpPerYear
-from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving, miniAllTimeHigh, miniAllTimeLow, miniHalvings, mini_first_halving\
-# from services.adrian import
+from services.michal import allTimeHigh, allTimeLow, halvings, first_halving, second_halving, miniAllTimeHigh, miniAllTimeLow, miniHalvings, mini_first_halving
+from services.adrian import plotHistoricalPrices, plotLowestPriceSince2000, plotBestTimeToTrade2000_2015, plotTrendSince2005
+
 
 app = Flask(__name__)
 app.app_context().push()
@@ -131,6 +132,10 @@ def main():
             return render_template(
                 "adrian.html",
                 base_url = base_url,
+                php = plotHistoricalPrices(), 
+                plps2000 = plotLowestPriceSince2000(),
+                pbttt = plotBestTimeToTrade2000_2015(),
+                pts2005 = plotTrendSince2005(),
                 # NAZWAZMIENNEJ = importFunkcji(),
                 )
         case _:
@@ -143,3 +148,4 @@ if __name__ == "__main__":
     if debug:
         base_url = "http://127.0.0.1:5000"
         app.run(debug=True)
+       
