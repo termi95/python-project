@@ -4,7 +4,8 @@
   <title>Michał Krzysteczko</title>
 {% endblock %}
 {% block body %}
-  {% include  'navbar.html' %}
+  {% include 'navbar.html' %}
+  {% include 'topbutton.html' %}
   <div class="bg-white mt-16">
     <div aria-hidden="true" class="relative">
       <img src="{{url_for('static', filename='assets/michal-background.jpg')}}" alt="" class="h-96 w-full object-cover object-center">
