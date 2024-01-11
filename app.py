@@ -45,7 +45,7 @@ def login():
             
         for field in [x for x in vars(loginReq) if not x.startswith("__")]:
             if getattr(loginReq, field) == "":
-                flash(f"field: {field} connot be empty", category='error')
+                flash(f"Pole: {field} nie może być puste", category='error')
                 return render_template("index.html", base_url=base_url)
         
         user = User.query.filter_by(login=loginReq.login).first()
@@ -54,9 +54,9 @@ def login():
                 login_user(user, remember=True)
                 return redirect(url_for("main"))
             else:
-                flash("User or password are incorcect", category="error")
+                flash("Login lub hasło są nieprawidłowe.", category="error")
         else:
-            flash("User or password are incorcect", category="error")
+            flash("Login lub hasło są nieprawidłowe.", category="error")
             
     return render_template("index.html", base_url=base_url)
 
@@ -64,6 +64,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash("Wylogowano pomyślnie!", category="success")
     return redirect(url_for("login"))
 
 @app.route("/register", methods=["GET", "POST"])
@@ -75,16 +76,16 @@ def register():
         
         for field in [x for x in vars(registerReq) if not x.startswith("__")]:
             if getattr(registerReq, field) == "":
-                flash(f"field: {field} connot be empty", category='error')
+                flash(f"Pole: {field} nie może być puste", category='error')
                 return render_template("register.html", base_url=base_url)
             
         user = User.query.filter_by(login=registerReq.login).first()
         if user:
-            flash(f"Login is taken", category='error')
+            flash(f"Login jest zajęty.", category='error')
             return render_template("register.html", base_url=base_url)
             
         if registerReq.password != registerReq.rePassword:            
-            flash("Password not match", category='error')
+            flash("Nieprawidłowe Hasło.", category='error')
             return render_template("register.html", base_url=base_url)
             
         user = User()
@@ -93,7 +94,7 @@ def register():
         db.session.add(user)
         db.session.commit()
                     
-        flash("Register", category='success')
+        flash("Stworzono użytkownika!", category='success')
         return redirect(url_for("login"))
         
     return render_template("register.html", base_url=base_url)
